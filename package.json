@@ -1,6 +1,6 @@
 {
   "name": "testnode",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "node",
   "pre_release": false,
   "private": false,

@@ -9,6 +9,8 @@ function Cube() {
     this.addOutput("mesh", "object");
 }
 
+Cube.title = "Cube";
+
 Cube.prototype.onExecute = function () {
     const width = this.getInputData(0);
     const height = this.getInputData(1);
