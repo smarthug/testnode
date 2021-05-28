@@ -1,4 +1,4 @@
-import { sceneAdder, THREE } from "global";
+import { sceneAdder, THREE, LiteGraph } from "global";
 
 
 function Cube() {
