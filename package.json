@@ -1,7 +1,9 @@
 {
   "name": "testnode",
   "version": "0.1.0",
-  "private": true,
+  "type": "node",
+  "pre_release": false,
+  "private": false,
   "dependencies": {
     "@design-express/node-scripts": "0.0.13"
   },
@@ -20,5 +22,7 @@
     "@rollup/plugin-node-resolve": "^11.2.1",
     "eslint": "^7.27.0",
     "rollup": "^2.50.2"
-  }
+  },
+  "author": "chs1402@nexivil.com",
+  "license": "MIT"
 }

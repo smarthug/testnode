@@ -1,18 +1,40 @@
-import { registerNodeType } from "LiteGraph";
+import { sceneAdder, THREE } from "global";
 
-// Make node
-function TestNode() {
-  this.addInput("input", "*");
-  this.addOutput("output", 0);
+
+function Cube() {
+    this.addInput("width", "number");
+    this.addInput("height", "number");
+    this.addInput("depth", "number");
+
+    this.addOutput("mesh", "object");
 }
 
-TestNode.prototype.onExecute = function () {
-  let input = this.getInputData(0);
-  this.setOutputData(0, input);
+Cube.prototype.onExecute = function () {
+    const width = this.getInputData(0);
+    const height = this.getInputData(1);
+    const depth = this.getInputData(2);
+
+
+
+
+    const geometry = new THREE.BoxGeometry(width, height, depth);
+    const material = new THREE.MeshNormalMaterial({ color: 0x00ff00 });
+    const cube = new THREE.Mesh(geometry, material);
+
+    console.log(cube)
+
+    sceneAdder({
+        layer:0,
+        mesh: cube,
+    });
+
+
+    // sceneAdder({ name: "cube", layer: 0, mesh: cube, meta: { part: "cube" } });
+    this.setOutputData(0, cube);
+
+    
 };
 
-TestNode.title = "TestNode";
-TestNode.description = "This is the example.";
 
-// Expose Node
-registerNodeType("test/TestNode", TestNode);
+
+LiteGraph.registerNodeType("Tutorial/Cube", Cube );
